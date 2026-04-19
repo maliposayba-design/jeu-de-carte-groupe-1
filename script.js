@@ -10,14 +10,16 @@ let jeuactif=false;
 let temps = 60;
 let interval;
 
-// 🎮 Bouton jouer
 bouton.addEventListener("click", () => {
   melangerCartes();
   demarrerTimer();
   jeuactif=true;
 });
 
-// 🔀 Mélanger les cartes
+// function multi(x,y){
+//   let multie = x*y;
+// }
+
 function melangerCartes() {
   cartes.forEach(carte => {
     let position = Math.floor(Math.random() * 16);
@@ -25,7 +27,6 @@ function melangerCartes() {
   });
 }
 
-// 🖱️ Clique sur carte
 cartes.forEach(carte => {
   carte.addEventListener("click", () => {
     if(!jeuactif)return;
@@ -43,7 +44,6 @@ cartes.forEach(carte => {
   });
 });
 
-// 🔍 Comparaison
 function verifierMatch() {
   let match = premiereCarte.getAttribute("photo") === deuxiemeCarte.getAttribute("photo");
 
@@ -66,7 +66,6 @@ function verifierMatch() {
   }
 }
 
-// 🏆 Victoire
 function verifierVictoire() {
   let toutes = document.querySelectorAll(".carte.retournee");
 
@@ -76,7 +75,6 @@ function verifierVictoire() {
   }
 }
 
-// ⏱️ Timer
 function demarrerTimer() {
   interval = setInterval(() => {
     temps--;
